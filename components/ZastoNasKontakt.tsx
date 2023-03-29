@@ -22,7 +22,7 @@ function ZastoNasKontakt() {
                     <Image className='transition duration-300 ease-in-out hover:scale-110' src='/logo.png' width={200} height={200} alt={'Slika vrece za brasno'} />
                 </div>
             </div>
-            <div className=' p-20'>
+            <div className=' p-10 sm:p-20'>
 
 
                 <div className=''>
