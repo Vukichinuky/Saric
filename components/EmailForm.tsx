@@ -4,10 +4,6 @@ import { useState } from "react";
 
 
 export default function EmailForm() {
-    const [fullname, setFullname] = useState("");
-    const [email, setEmail] = useState("");
-    const [subject, setSubject] = useState("");
-    const [message, setMessage] = useState("");
 
     return (
         <div>
