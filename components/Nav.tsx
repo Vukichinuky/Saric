@@ -1,8 +1,11 @@
 'use client'
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-const currentPath = window.location.pathname;
 
+let currentPath = '';
+if (typeof window !== 'undefined') {
+    currentPath = window.location.pathname;
+}
 const navigation = [
     { name: 'Pocetna', href: '/', current: currentPath === '/' },
     { name: 'O nama', href: '/onama', current: currentPath === '/onama' },
@@ -10,7 +13,6 @@ const navigation = [
     { name: 'W&H AD 2360/16', href: '/wah', current: currentPath === '/wah' },
     { name: 'Kontakt', href: '/contact', current: currentPath === '/contact' },
 ];
-
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
