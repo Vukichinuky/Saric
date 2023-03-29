@@ -8,7 +8,7 @@ function Hero() {
 
         <div className='flex sm:flex-row p-8   flex-col justify-center items-center '>
             <div className=" flex justify-center flex-col items-center">
-                <Image fill className=" bg-contain -z-10 " src={"/pexels-clarissa-schwarz-8941371.jpg"} alt={""} />
+                <Image fill className=" bg-contain bg-repeat -z-10 " src={"/pexels-clarissa-schwarz-8941371.jpg"} alt={""} />
                 <motion.div className="  "
                     initial={{ x: '-100vw' }}
                     animate={{ x: 0 }}
