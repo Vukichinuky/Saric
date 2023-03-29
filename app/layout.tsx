@@ -16,7 +16,7 @@ export default function RootLayout({
     <html className=' font-sans' lang="en">
       <body>
 
-        <Nav />
+
         {children}
         <Footer /></body>
     </html>
