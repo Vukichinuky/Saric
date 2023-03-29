@@ -5,7 +5,7 @@ const Email123 = dynamic(() => import('@/components/EmailForm'), {
 });
 export default function Contact() {
     return (
-        <div className='bg6 p-20'>
+        <div className='bg6 p-10 sm:p-20'>
             <div className='flex bg-white flex-col sm:flex-row  rounded-2xl justify-left items-center'>
                 <div className='p-10'>
                     <h2 className='font-medium italic'>Pozovite nas</h2>
