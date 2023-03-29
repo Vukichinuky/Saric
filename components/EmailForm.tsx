@@ -102,7 +102,7 @@ export default function EmailForm() {
                     </svg>
                 </button>
             </div>
-            </form><form className="rounded-lg shadow-xl flex flex-col px-8 py-8 bg-white dark:bg-blue-500">
+            </form>*/}<form className="rounded-lg shadow-xl flex flex-col px-8 py-8 bg-white dark:bg-blue-500">
                 <h1 className="text-2xl font-bold dark:text-gray-50">Posalji nam E-mail</h1>
 
                 <label htmlFor="fullname" className="text-gray-500 font-light mt-8 dark:text-gray-50">Puno ime<span className="text-red-500 dark:text-gray-50">*</span></label>
@@ -122,5 +122,5 @@ export default function EmailForm() {
 
                     </button>
                 </div>
-            </form>*/}</div>)
+            </form></div>)
 }
