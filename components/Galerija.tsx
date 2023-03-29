@@ -14,8 +14,7 @@ function Galerija() {
                             <h2 className="font-bold text-xl px-10 pb-10 sm:pt-0 pt-5 text-center">Prevoz robe</h2>
                             <p className=" mb-5">
                                 Nasi kamioni su na raspolaganju Vama i Vasim potrebama.
-                                Prevozimo sve do 20tona na relacije od preko 12000km ///
-                            //////////////
+                                Prevozimo sve do 20tona na relacije od preko 12000km
                             </p>
                             <Link className='cursor-pointer  underline text-blue-300' href={"/kamioni"} >Saznaj Vise</Link>
                         </div>
