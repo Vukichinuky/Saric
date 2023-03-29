@@ -26,7 +26,7 @@ function Hero() {
                 <Image
                     className="  transition duration-300 ease-in-out hover:scale-110     rounded-3xl "
                     alt="ilustracija masine za stampanje "
-                    src={'/../public/masina.png'}
+                    src={'/masina.png'}
                     width={1000}
                     height={1000}
                     priority />
