@@ -1,6 +1,7 @@
 'use client'
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link';
 
 let currentPath = '';
 if (typeof window !== 'undefined') {
@@ -38,8 +39,12 @@ export default function Nav() {
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0  items-center">
-                                    <p className='block h-8 w-auto text-teal-700 text-xl lg:hidden font-bold'>SARIC</p>
-                                    <p className='hidden text-2xl w-auto  text-teal-700 lg:block font-bold'>SARIC</p>
+                                    <Link href={'/'}>
+                                        <p className='block h-8 w-auto text-teal-700 text-xl lg:hidden font-bold'>SARIC</p>
+                                    </Link>
+                                    <Link href={'/'}>
+                                        <p className='hidden text-2xl w-auto  text-teal-700 lg:block font-bold'>SARIC</p>
+                                    </Link>
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4">
