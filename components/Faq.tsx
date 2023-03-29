@@ -8,7 +8,7 @@ function Faq() {
                 <div className='flex p-10 flex-col gap-4'>
                     <h2 className='text-2xl font-bold '>FAQ (Pitanja i odgovori)</h2>
                     <p className='font-semibold text-lg'>Najcesca pitanja i odgovori</p>
-                    <Link className='bg-teal-700 py-4 px-3 text-center rounded-2xl font-bold text-slate-100' href={'/kontakt'}>Postavi nam pitanje</Link>
+                    <Link className='bg-teal-700 py-4 px-3 text-center rounded-2xl font-bold text-slate-100' href={'/postavipitanje'}>Postavi nam pitanje</Link>
                     <p className='italic text-slate-300'>**Pitanja nasih klijenata na koje mi odgovaramo</p>
                 </div>
                 <div className='grid p-4 grid-cols-1 sm:max-w-lg max-w-xs sm:grid-cols-2 sm:grid-rows-2'>

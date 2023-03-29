@@ -18,6 +18,22 @@
 
 }
 
+.bg3 {
+  background-image: url('/minimalist-pink-wall-background.jpg');
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+.bg2 {
+  background-image: url('/2206_w019_n002_614b_p15_614.jpg');
+
+}
+
+.bg1 {
+  background-image: url('/blank-brown-paper-textured-wallpaper.jpg');
+  background-size: cover;
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -34,4 +50,27 @@
 
 swiper {
   height: 700px;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 2px black;
+}
+
+hr {
+  border-color: rgb(59, 71, 87);
+}
+
+.bg4 {
+  background-image: url('/pexels-arina-krasnikova-7002683.jpg');
+  background-size: cover;
+}
+
+.bg5 {
+  background-image: url('/pexels-resource-boy-13031765.jpg');
+  background-size: cover;
+}
+
+.bg6 {
+  background-image: url('/pexels-clarissa-schwarz-8941371.jpg');
+  background-size: contain;
 }

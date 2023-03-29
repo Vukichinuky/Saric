@@ -4,9 +4,10 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 const currentPath = window.location.pathname;
 
 const navigation = [
-    { name: 'O nama', href: '/', current: currentPath === '/' },
-    { name: 'Masina', href: '/machine', current: currentPath === '/machine' },
-    { name: 'W&H AD 2360/16', href: '/wh-ad-2360-16', current: currentPath === '/wh-ad-2360-16' },
+    { name: 'Pocetna', href: '/', current: currentPath === '/' },
+    { name: 'O nama', href: '/onama', current: currentPath === '/onama' },
+
+    { name: 'W&H AD 2360/16', href: '/wah', current: currentPath === '/wah' },
     { name: 'Kontakt', href: '/contact', current: currentPath === '/contact' },
 ];
 

@@ -9,6 +9,8 @@ import ZastoNasKontakt from '@/components/ZastoNasKontakt';
 import Misija from '@/components/Misija';
 import Galerija from '@/components/Galerija';
 import Faq from '@/components/Faq';
+import AnimatedPage from "../components/AnimatedPage";
+
 {  /*const MyComponent = dynamic(
   () => import('../components/Curasel'),
   { ssr: false }
@@ -19,7 +21,7 @@ export default function Home() {
   return (
     <main className=''>
       <div >
-
+        {/*} <AnimatedPage >*/}
         <Hero />
         {  /* <MyComponent /> */}
         <Partneri />
@@ -28,7 +30,8 @@ export default function Home() {
         <Misija />
         <Galerija />
         <Faq />
+        {/* </AnimatedPage>*/}
 
-      </div>   </main>
+      </div>   </main >
   )
 }
