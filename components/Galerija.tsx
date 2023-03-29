@@ -21,7 +21,7 @@ function Galerija() {
                     </div>
                     <div className='flex flex-col sm:flex-row sm:mx-30 bg-[#F7F7FE] items-center p-10   rounded-2xl justify-evenly'>
                         <div>
-                            <Image className=" rounded-xl rotate-90" width={250} height={400} src={"/IMG_2991.jpg"} alt={""} />
+                            <Image className=" rounded-xl rotate-90" width={250} height={400} src={"/IMG_2991.JPG"} alt={""} />
                         </div>
                         <div className="sm:w-96 text-slate-900 p-10 w-22 ">
                             <h2 className="font-bold text-xl px-10 pb-10 sm:pt-0 pt-5 text-center">Stocna hrana</h2>
@@ -34,7 +34,7 @@ function Galerija() {
                     </div>
                     <div className='flex flex-col sm:flex-row  sm:mx-30 items-center p-10 bg-[#F7F7FE] rounded-2xl justify-evenly '>
                         <div>
-                            <Image className="rotate-90 rounded-xl" width={250} height={400} src={"/IMG_2992.jpg"} alt={""} />
+                            <Image className="rotate-90 rounded-xl" width={250} height={400} src={"/IMG_2992.JPG"} alt={""} />
                         </div>
                         <div className="sm:w-96 p-10 w-22 ">
                             <h2 className="font-bold text-xl px-10 text-slate-900 pb-10 sm:pt-0 pt-5 text-center">Papirna ambalaza</h2>
