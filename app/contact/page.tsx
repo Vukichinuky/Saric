@@ -1,5 +1,8 @@
-import EmailForm from '@/components/EmailForm';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+const Email123 = dynamic(() => import('@/components/EmailForm'), {
+    ssr: false
+});
 export default function Contact() {
     return (
         <div className='bg6 p-20'>
@@ -19,7 +22,7 @@ export default function Contact() {
                 </div>
             </div>
             <div className='p-10'>
-                <EmailForm />
+                <Email123 />
             </div>
         </div>
     )
