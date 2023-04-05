@@ -1,9 +1,12 @@
-const cors = require('cors');
-const express = require('express');
+const express = require("express");
+const cors = require("cors");
+const app = express();
+app.use(cors({ origin: "https://www.dev-drop.com" }));
+
 const sgMail = require('@sendgrid/mail');
 
 const { SG_API_KEY, FROM_EMAIL, TO_EMAIL } = process.env;
-const app = express();
+
 app.use(cors());
 app.use(express.json());
 
