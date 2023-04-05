@@ -16,7 +16,7 @@ function Galerija() {
                                 Nasi kamioni su na raspolaganju Vama i Vasim potrebama.
                                 Prevozimo sve do 20tona na relacije od preko 12000km
                             </p>
-                            <Link className='cursor-pointer  underline text-blue-300' href={"/kamioni"} >Saznaj Vise</Link>
+                            <Link className='cursor-pointer  underline text-blue-300' href={"/PrevozRobe"} >Saznaj Vise</Link>
                         </div>
                     </div>
                     <div className='flex flex-col sm:flex-row sm:mx-30 bg-[#F7F7FE] items-center p-10   rounded-2xl justify-evenly'>

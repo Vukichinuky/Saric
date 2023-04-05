@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className=' font-serif' lang="sr">
+    <html className=' font-sans' lang="sr">
       <body>
 
         <Nav />

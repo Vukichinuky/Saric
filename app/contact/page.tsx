@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaPhone, FaEnvelope, FaMapPin } from 'react-icons/fa';
-import Email from '@/components/Emailform';
 export default function Contact() {
     return (
         <div className='bg6 '>
@@ -28,7 +27,7 @@ export default function Contact() {
                         <p className='pl-4'>Padjine 350, 75400 Zovrnik</p>
                     </div>
                 </div>
-                <Email />
+
             </div>
         </div>
     )
