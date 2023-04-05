@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({ email: "", message: "" });
@@ -8,8 +7,13 @@ const ContactForm = () => {
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         try {
-            const res = await axios.post("/api/sendEmail", formData);
-            setFormMessage(res.data.message);
+            const res = await fetch("/api/sendEmail", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+            const data = await res.json();
+            setFormMessage(data.message);
             setFormData({ email: "", message: "" });
         } catch (error) {
             console.error(error);
@@ -20,6 +24,7 @@ const ContactForm = () => {
     const handleChange = (e: { target: { name: any; value: any; }; }) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
+
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -46,7 +51,6 @@ const ContactForm = () => {
             <button type="submit">Send</button>
             {formMessage && <p>{formMessage}</p>}
         </form>
-
     );
 };
 
