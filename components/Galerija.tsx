@@ -10,7 +10,7 @@ function Galerija() {
                         <div>
                             <Image width={400} height={400} src={"/saric-deelgros-komerc-zvornik 1.png"} alt={""} />
                         </div>
-                        <div className="sm:w-96 text-slate-900 p-10 w-22 ">
+                        <div className="sm:w-96 text-slate-900 p-12 w-22 ">
                             <h2 className="font-bold text-xl px-10 pb-10 sm:pt-0 pt-5 text-center">Prevoz robe</h2>
                             <p className=" mb-5">
                                 Nasi kamioni su na raspolaganju Vama i Vasim potrebama.
@@ -23,7 +23,7 @@ function Galerija() {
                         <div>
                             <Image className=" rounded-xl rotate-90" width={250} height={400} src={"/IMG_2991.JPG"} alt={""} />
                         </div>
-                        <div className="sm:w-96 text-slate-900 p-10 w-22 ">
+                        <div className="sm:w-96 text-slate-900 p-12 w-22 ">
                             <h2 className="font-bold text-xl px-10 pb-10 sm:pt-0 pt-5 text-center">Stocna hrana</h2>
                             <p className=" mb-5">
                                 Bavimo se nabavkom i isporukom stocne hrane <br />
@@ -36,7 +36,7 @@ function Galerija() {
                         <div>
                             <Image className="rotate-90 rounded-xl" width={250} height={400} src={"/IMG_2992.JPG"} alt={""} />
                         </div>
-                        <div className="sm:w-96 p-10 w-22 ">
+                        <div className="sm:w-96 p-12 w-22 ">
                             <h2 className="font-bold text-xl px-10 text-slate-900 pb-10 sm:pt-0 pt-5 text-center">Papirna ambalaza</h2>
                             <p className="text-slate-900 mb-5">
                                 Papirna ambalaza velicina od 65cm do 200cm
