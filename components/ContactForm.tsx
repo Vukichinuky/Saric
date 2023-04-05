@@ -7,7 +7,7 @@ const ContactForm = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const res = await fetch("/api/sendEmail", {
+            const res = await fetch("/sendEmail", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
