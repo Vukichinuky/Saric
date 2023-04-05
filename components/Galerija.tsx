@@ -29,7 +29,7 @@ function Galerija() {
                                 Bavimo se nabavkom i isporukom stocne hrane <br />
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, commodi!
                             </p>
-                            <Link className='cursor-pointer  underline text-blue-300' href={"/stocnahrana"} >Saznaj Vise</Link>
+                            <Link className='cursor-pointer  underline text-blue-300' href={"/StocnaHrana"} >Saznaj Vise</Link>
                         </div>
                     </div>
                     <div className='flex flex-col sm:flex-row  sm:mx-30 items-center p-10 bg-[#F7F7FE] rounded-2xl justify-evenly '>
@@ -41,7 +41,7 @@ function Galerija() {
                             <p className="text-slate-900 mb-5">
                                 Papirna ambalaza velicina od 65cm do 200cm
                             </p>
-                            <Link className='cursor-pointer  underline text-blue-300' href={"/papirnaambalaza"} >Saznaj Vise</Link>
+                            <Link className='cursor-pointer  underline text-blue-300' href={"/PapirnaAmbalaza"} >Saznaj Vise</Link>
                         </div>
                     </div>
                 </div>

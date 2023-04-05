@@ -41,10 +41,10 @@ export default function Nav() {
                             <div className="flex flex-1 items-center justify-center sm:items-center sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
                                     <Link href={'/'}>
-                                        <Image className='block h-16 w-auto lg:hidden' src={'/logos.png'} width={200} height={200} alt={'Logo'} />
+                                        <Image className='block h-16 w-auto lg:hidden' src={'/LogoS.png'} width={200} height={200} alt={'Logo'} />
                                     </Link>
                                     <Link href={'/'}>
-                                        <Image className='lg:block h-16 w-auto hidden' src={'/logos.png'} width={200} height={200} alt={'Logo'} />
+                                        <Image className='lg:block h-16 w-auto hidden' src={'/LogoS.png'} width={200} height={200} alt={'Logo'} />
                                     </Link>
 
                                 </div>

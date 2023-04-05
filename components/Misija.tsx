@@ -14,7 +14,7 @@ function Misija() {
                     <li className='pl-3'>Vizija nase firme se zasniva...</li>
                     <li className='p-3'>Buducnost je takva i takva...</li>
                 </ul>
-                <Link className='cursor-pointer underline text-blue-300' href={'/misija'}>Pogledaj vise..</Link>
+                <Link className='cursor-pointer underline text-blue-300' href={'/onama'}>Pogledaj vise..</Link>
             </div>
         </div>
     )
