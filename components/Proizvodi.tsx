@@ -27,7 +27,7 @@ const Proizvodi: React.FC = () => {
         loop: true,
         slidesPerView: 4,
         autoplay: {
-            delay: 300,
+            delay: 4000,
             disableOnInteraction: true,
         },
     };
