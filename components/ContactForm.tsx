@@ -4,12 +4,14 @@ const ContactForm = () => {
     const [formData, setFormData] = useState({ email: "", message: "" });
     const [formMessage, setFormMessage] = useState("");
 
-    const handleSubmit = async (e: { preventDefault: () => void; }) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const res = await fetch("https://www.dev-drop.com/api/sendEmail", {
+            const res = await fetch("/api/sendEmail", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                },
                 body: JSON.stringify(formData),
             });
             const data = await res.json();
@@ -21,7 +23,7 @@ const ContactForm = () => {
         }
     };
 
-    const handleChange = (e: { target: { name: any; value: any; }; }) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
