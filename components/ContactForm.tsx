@@ -13,7 +13,7 @@ export default function Home() {
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
-        await fetch("http://localhost:3000/api/hello", {
+        await fetch("http://dev-drop.com/api/sendEmail", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
