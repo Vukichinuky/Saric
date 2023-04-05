@@ -8,7 +8,7 @@ const ContactForm = () => {
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         try {
-            const res = await axios.post("/api/contact", formData);
+            const res = await axios.post("/api/sendEmail", formData);
             setFormMessage(res.data.message);
             setFormData({ email: "", message: "" });
         } catch (error) {
@@ -20,7 +20,6 @@ const ContactForm = () => {
     const handleChange = (e: { target: { name: any; value: any; }; }) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
-
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -47,6 +46,7 @@ const ContactForm = () => {
             <button type="submit">Send</button>
             {formMessage && <p>{formMessage}</p>}
         </form>
+
     );
 };
 

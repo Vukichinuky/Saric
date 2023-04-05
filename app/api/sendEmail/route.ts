@@ -1,8 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import sgMail from "@sendgrid/mail";
+require("dotenv").config();
 
 const { SENDGRID_API_KEY } = process.env;
 sgMail.setApiKey(SENDGRID_API_KEY as string);
+console.log(process.env.SANDGRID_APY_KEY);
+console.log(process.env);
 
 export default async function handler(
   req: NextApiRequest,
