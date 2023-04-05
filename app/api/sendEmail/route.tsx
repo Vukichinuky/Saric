@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import sgMail from '@sendgrid/mail'
 
 export default async function sendEmail(req: NextApiRequest, res: NextApiResponse) {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY ? process.env.SENDGRID_API_KEY : '')
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY ? process.env.SENDGRID_API_KEY : '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')
 
   const { name, email, message } = req.body // Get the form data from the request body
 
