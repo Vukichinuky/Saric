@@ -1,47 +1,53 @@
-import { useState } from 'react'
+import { useState } from "react";
+import axios from "axios";
 
-export default function ContactForm() {
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [message, setMessage] = useState('')
-    const [status, setStatus] = useState('')
+const ContactForm = () => {
+    const [formData, setFormData] = useState({ email: "", message: "" });
+    const [formMessage, setFormMessage] = useState("");
 
-    const handleSubmit = async (event: { preventDefault: () => void }) => {
-        event.preventDefault()
-        setStatus('Sending...')
-
-        const response = await fetch('/api/sendEmail', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, message })
-        })
-
-        const data = await response.json()
-
-        if (response.ok) {
-            setStatus(data.message)
-            setName('')
-            setEmail('')
-            setMessage('')
-        } else {
-            setStatus('Failed to send email')
+    const handleSubmit = async (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post("/api/contact", formData);
+            setFormMessage(res.data.message);
+            setFormData({ email: "", message: "" });
+        } catch (error) {
+            console.error(error);
+            setFormMessage("Something went wrong.");
         }
-    }
+    };
+
+    const handleChange = (e: { target: { name: any; value: any; }; }) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
-
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-
-            <label htmlFor="message">Message</label>
-            <textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} />
-
+            <div>
+                <label htmlFor="email">Email:</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+            <div>
+                <label htmlFor="message">Message:</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                ></textarea>
+            </div>
             <button type="submit">Send</button>
-
-            {status && <p>{status}</p>}
+            {formMessage && <p>{formMessage}</p>}
         </form>
-    )
-}
+    );
+};
+
+export default ContactForm;
