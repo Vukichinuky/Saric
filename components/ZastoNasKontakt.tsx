@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import dynamic from 'next/dynamic';
+import ContactForm from './ContactForm';
 
 function ZastoNasKontakt() {
     return (
@@ -22,7 +23,7 @@ function ZastoNasKontakt() {
             </div>
             <div className=' p-10 sm:p-20'>
 
-
+                <ContactForm />
 
 
             </div>
