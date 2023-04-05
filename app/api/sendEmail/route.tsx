@@ -7,7 +7,7 @@ export default async function sendEmail(req: NextApiRequest, res: NextApiRespons
   const { name, email, message } = req.body // Get the form data from the request body
 
   const msg = {
-    to: 'drvuk6@gmail.com', // Replace with your email address
+    to: 'drvuk23@gmail.com', // Replace with your email address
     from: email,
     subject: `New message from ${name}`,
     text: message,
