@@ -14,7 +14,7 @@ export default function Home() {
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         await fetch("https://www.dev-drop.com/api/sendEmail", {
-            method: "POST",
+            method: "GET",
             headers: {
                 "Content-Type": "application/json",
             },
