@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 export const metadata = {
   title: 'Saric DOO',
   description: 'Proizvodnja papirne ambalaze, transport stocne hrane',
+
 }
 
 export default function RootLayout({
