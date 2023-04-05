@@ -1,30 +1,27 @@
-const express = require("express");
-const cors = require("cors");
-const app = express();
-app.use(cors({ origin: "https://www.dev-drop.com" }));
+import { NextApiRequest, NextApiResponse } from "next";
+import sgMail from "@sendgrid/mail";
 
-const sgMail = require('@sendgrid/mail');
+const { SG_API_KEY } = process.env;
+sgMail.setApiKey(SG_API_KEY as string);
 
-const { SG_API_KEY, FROM_EMAIL, TO_EMAIL } = process.env;
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  const { email, message } = req.body;
 
-app.use(cors());
-app.use(express.json());
-
-sgMail.setApiKey(SG_API_KEY);
-
-app.post('/api/sendEmail', async (req: { body: { name: any; email: any; message: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { success: boolean; }): void; new(): any; }; }; }) => {
-  const { name, email, message } = req.body;
   const msg = {
-    to: TO_EMAIL,
-    from: FROM_EMAIL,
-    subject: 'Contact',
-    html: `<p><strong>name: </strong>${name}</p>
-    <p><strong>email: </strong>${email}</p>    
-    <p><strong>message: </strong>${message}</p>`,
+    to: "drvuk23@gmail.com", // Replace with your own email address
+    from: email,
+    subject: "New message from your website",
+    text: message,
   };
-  await sgMail.send(msg);
-  console.log('email sent');
-  res.status(200).json({ success: true });
-});
 
-module.exports = app;
+  try {
+    await sgMail.send(msg);
+    res.status(200).json({ message: "Email sent successfully!" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Something went wrong." });
+  }
+}
