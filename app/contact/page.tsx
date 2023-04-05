@@ -1,28 +1,34 @@
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
-const Email123 = dynamic(() => import('@/components/EmailForm'), {
-    ssr: false
-});
+import Image from 'next/image';
+import { FaPhone, FaEnvelope, FaMapPin } from 'react-icons/fa';
+import Email from '@/components/Emailform';
 export default function Contact() {
     return (
-        <div className='bg6 p-10 sm:p-20'>
-            <div className='flex bg-white flex-col sm:flex-row  rounded-2xl justify-left items-center'>
-                <div className='p-10'>
-                    <h2 className='font-medium italic'>Pozovite nas</h2>
-                    <p className='font-extralight italic'>Broj telefona: 0641234123</p>
-                </div>
-                <div className='p-10'>
-                    <h2 className='font-medium italic'>Pronadji nas</h2>
-                    <p className='font-extralight italic'>Adresa: Padjine 75412</p>
-                </div>
-                <div className='p-10'>
-                    <Link target="_blank" href={'https://www.google.com/maps/place/Sari%C4%87+d.o.o./@44.5248559,19.1181675,19.29z/data=!4m15!1m8!3m7!1s0x47595e250a760f4b:0xe39f3f55de56fa39!2sPa%C4%91ine,+Bosnia+and+Herzegovina!3b1!8m2!3d44.5327808!4d19.1250449!16s%2Fm%2F0g9zcbs!3m5!1s0x47595e18696c35d5:0x3ac229315bf1c357!8m2!3d44.5249081!4d19.1184644!16s%2Fg%2F11c37kp45b'} >
-                        <h3 className='text-blue-500 underline cursor-pointer'>Otvori mapu</h3>
+        <div className='bg6 '>
+            <div className='flex gap-10 flex-col sm:flex-row justify-evenly items-start p-10'>
+                <div className='  '>
+                    <Link href={'https://www.google.com/maps/place/Sari%C4%87+d.o.o./@44.5249081,19.1162757,17z/data=!3m1!4b1!4m6!3m5!1s0x47595e18696c35d5:0x3ac229315bf1c357!8m2!3d44.5249081!4d19.1184644!16s%2Fg%2F11c37kp45b'}>
+                        <Image src={'/mapaslika.jpg'} className='rounded-xl ' alt={'slika sa mape'} height={700} width={400} />
                     </Link>
                 </div>
-            </div>
-            <div className='p-10'>
-                <Email123 />
+                <div className='flex flex-col bg-white text-slate-700 rounded-xl shadow-inner p-5 shadow-gray-200  justify-center'>
+                    <div className='flex items-center justify-center p-4'>
+                        <h1 className='text-xl font-medium italic'>Upoznajte nas</h1>
+                    </div>
+                    <div className='flex py-2 items-center justify-left'>
+                        <FaPhone />
+                        <p className='pl-4'>+387 65 12 12 234</p>
+                    </div>
+                    <div className='flex py-2 items-center justify-left'>
+                        <FaEnvelope />
+                        <p className='pl-4'>primer@saric.com</p>
+                    </div>
+                    <div className='flex py-2 items-center justify-left'>
+                        <FaMapPin />
+                        <p className='pl-4'>Padjine 350, 75400 Zovrnik</p>
+                    </div>
+                </div>
+                <Email />
             </div>
         </div>
     )

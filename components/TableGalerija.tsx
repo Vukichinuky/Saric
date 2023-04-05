@@ -10,8 +10,8 @@ export default function TableGalerija() {
                 <Image className="flex-1  transition duration-300 ease-in-out hover:scale-150 " width={200} height={200} src={"/IMG_3018.JPG"} alt={"slika masine"} />
 
                 <Image className="flex-1  transition duration-300 ease-in-out hover:scale-150 " width={200} height={200} src={"/IMG_3015.JPG"} alt={"slika masine"} />
-                <Image className="  transition duration-300 ease-in-out hover:scale-75 " width={200} height={200} src={"/IMG_2991.JPG"} alt={"slika masine"} />
-                <Image className="  transition duration-300 ease-in-out hover:scale-75 " width={200} height={200} src={"/IMG_2992.JPG"} alt={"slika masine"} />
+                <Image className=" flex-1 transition duration-300 ease-in-out hover:scale-150 " width={200} height={200} src={"/IMG_2991.JPG"} alt={"slika masine"} />
+                <Image className=" flex-1 transition duration-300 ease-in-out hover:scale-150 " width={200} height={200} src={"/IMG_2992.JPG"} alt={"slika masine"} />
 
             </div>
 

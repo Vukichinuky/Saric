@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import dynamic from 'next/dynamic';
-const Email1234 = dynamic(() => import('@/components/EmailForm'), {
-    ssr: false
-});
+
 function ZastoNasKontakt() {
     return (
         <div className='bg-[#F7F7FE] m-10 rounded-2xl'>
@@ -25,8 +23,7 @@ function ZastoNasKontakt() {
             <div className=' p-10 sm:p-20'>
 
 
-                <div className=''>
-                    <Email1234 />                </div>
+
 
             </div>
 

@@ -6,7 +6,7 @@ import { useInView } from "framer-motion"
 function Hero() {
     return (
 
-        <div className='flex sm:flex-row p-8 bg6 bg-cover bg-repeat flex-col justify-center items-center '>
+        <div className='flex sm:flex-row p-8 bg2 bg-cover bg-repeat flex-col justify-center items-center '>
             <div className=" flex justify-center flex-col items-center">
 
                 <motion.div className="  "

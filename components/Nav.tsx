@@ -2,6 +2,7 @@
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
+import Image from 'next/image';
 
 let currentPath = '';
 if (typeof window !== 'undefined') {
@@ -24,8 +25,8 @@ export default function Nav() {
         <Disclosure as="nav" className="">
             {({ open }) => (
                 <>
-                    <div className="mx-aut z-50 max-w-7xl  px-2 sm:px-6 lg:px-8">
-                        <div className="relative flex h-16 items-center justify-between">
+                    <div className="mx-auto z-50 max-w-7xl   px-5 sm:px-6 lg:px-8">
+                        <div className="relative flex h-20 items-center justify-between">
                             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                                 {/* Mobile menu button*/}
                                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-teal-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -37,17 +38,18 @@ export default function Nav() {
                                     )}
                                 </Disclosure.Button>
                             </div>
-                            <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                                <div className="flex flex-shrink-0  items-center">
+                            <div className="flex flex-1 items-center justify-center sm:items-center sm:justify-start">
+                                <div className="flex flex-shrink-0 items-center">
                                     <Link href={'/'}>
-                                        <p className='block h-8 w-auto text-teal-700 text-xl lg:hidden font-bold'>SARIC</p>
+                                        <Image className='block h-16 w-auto lg:hidden' src={'/logos.png'} width={200} height={200} alt={'Logo'} />
                                     </Link>
                                     <Link href={'/'}>
-                                        <p className='hidden text-2xl w-auto  text-teal-700 lg:block font-bold'>SARIC</p>
+                                        <Image className='lg:block h-16 w-auto hidden' src={'/logos.png'} width={200} height={200} alt={'Logo'} />
                                     </Link>
+
                                 </div>
-                                <div className="hidden sm:ml-6 sm:block">
-                                    <div className="flex space-x-4">
+                                <div className="hidden  sm:ml-6 sm:block">
+                                    <div className="flex  space-x-10">
                                         {navigation.map((item) => (
                                             <a
                                                 key={item.name}
