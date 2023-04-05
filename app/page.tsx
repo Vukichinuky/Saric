@@ -10,6 +10,7 @@ import Misija from '@/components/Misija';
 import Galerija from '@/components/Galerija';
 import Faq from '@/components/Faq';
 import AnimatedPage from "../components/AnimatedPage";
+import Proizvodi from '@/components/Proizvodi';
 
 {  /*const MyComponent = dynamic(
   () => import('../components/Curasel'),
@@ -25,6 +26,7 @@ export default function Home() {
         <Hero />
         {  /* <MyComponent /> */}
         <Partneri />
+        <Proizvodi />
         <NestoONama />
         <ZastoNasKontakt />
         <Misija />

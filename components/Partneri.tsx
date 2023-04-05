@@ -20,7 +20,6 @@ function Partneri() {
                 </Link>
 
             </div>
-            <h4 className='text-center my-20'>OVDE CE BITI DEO O PROIZVODIMA</h4>
         </div>
     )
 }
