@@ -1,29 +1,20 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import sgMail from "@sendgrid/mail";
 require("dotenv").config();
-const { SENDGRID_API_KEY } = process.env;
-sgMail.setApiKey(SENDGRID_API_KEY as string);
-console.log(process.env.SENDGRID_API_KEY);
+const sgMail = require("@sendgrid/mail");
 
+const { SG_API_KEY, FROM_EMAIL, TO_EMAIL } = process.env;
+sgMail.setApiKey(SG_API_KEY);
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  const { email, message } = req.body;
-
+export default async function handler(req: { body: { name: any; email: any; message: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { success: boolean; }): void; new(): any; }; }; }) {
+  const { name, email, message } = req.body;
   const msg = {
-    to: "drvuk23@gmail.com", // Replace with your own email address
-    from: email,
-    subject: "New message from your website",
-    text: message,
+    to: TO_EMAIL, // Change to your recipient
+    from: FROM_EMAIL, // Change to your verified sender
+    subject: "Contact",
+    html: `<p><strong>name: </strong>${name}</p>
+    <p><strong>email: </strong>${email}</p>    
+    <p><strong>message: </strong>${message}</p>`,
   };
-
-  try {
-    await sgMail.send(msg);
-    res.status(200).json({ message: "Email sent successfully!" });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Something went wrong." });
-  }
+  await sgMail.send(msg);
+  console.log("email sent");
+  res.status(200).json({ success: true });
 }

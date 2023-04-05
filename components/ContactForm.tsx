@@ -1,57 +1,66 @@
 import { useState } from "react";
 
-const ContactForm = () => {
-    const [formData, setFormData] = useState({ email: "", message: "" });
-    const [formMessage, setFormMessage] = useState("");
+export default function Home() {
+    const [values, setValues] = useState({
+        name: "",
+        email: "",
+        message: "",
+    });
+    const { name, email, message } = values;
+
+    const handleChange = (e: { target: { name: any; value: any; }; }) =>
+        setValues({ ...values, [e.target.name]: e.target.value });
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
-        try {
-            const res = await fetch("/api/sendEmail", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData),
-            });
-            const data = await res.json();
-            setFormMessage(data.message);
-            setFormData({ email: "", message: "" });
-        } catch (error) {
-            console.error(error);
-            setFormMessage("Something went wrong.");
-        }
+        await fetch("http://localhost:3000/api/hello", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+        });
     };
-
-    const handleChange = (e: { target: { name: any; value: any; }; }) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="email">Email:</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                />
+        <>
+            <h2>Next.js Sendgrid form submission</h2>
+            <div className="container">
+                <form onSubmit={handleSubmit}>
+                    <h3>Contact Form</h3>
+                    <div className="input_container">
+                        <input
+                            type="text"
+                            name="name"
+                            value={name}
+                            onChange={handleChange}
+                            placeholder="Enter your name..."
+                            className="input"
+                        />
+                    </div>
+                    <div className="input_container">
+                        <input
+                            type="email"
+                            name="email"
+                            value={email}
+                            onChange={handleChange}
+                            placeholder="Enter your email..."
+                            className="input"
+                        />
+                    </div>
+                    <div className="input_container">
+                        <textarea
+                            name="message"
+                            value={message}
+                            onChange={handleChange}
+                            placeholder="Enter your message..."
+                            className="input"
+                        />
+                    </div>
+                    <div className="btn_container">
+                        <button>Send</button>
+                    </div>
+                </form>
             </div>
-            <div>
-                <label htmlFor="message">Message:</label>
-                <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                ></textarea>
-            </div>
-            <button type="submit">Send</button>
-            {formMessage && <p>{formMessage}</p>}
-        </form>
+        </>
     );
-};
-
-export default ContactForm;
+}
