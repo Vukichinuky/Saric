@@ -26,7 +26,9 @@ export default function Home() {
         <Hero />
         {  /* <MyComponent /> */}
         <Partneri />
-        <Proizvodi />
+        <div className=''>
+          <Proizvodi />
+        </div>
         <NestoONama />
         <ZastoNasKontakt />
         <Misija />
