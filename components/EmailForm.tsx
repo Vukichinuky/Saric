@@ -1,4 +1,4 @@
-'use client'
+
 import axios from 'axios'
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -18,7 +18,7 @@ const Email: NextPage = () => {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         console.log(inputData);
-        const response = await axios.post(`/api/contact`, inputData)
+        const response = await axios.post(`/api/sendEmail`, inputData)
         console.log(response);
         alert("Contact successfully sent!!")
     }
