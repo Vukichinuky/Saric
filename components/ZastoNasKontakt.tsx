@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import EmailForm from './Emailform'
+import EmailForm from './EmailForm'
 
 
 function ZastoNasKontakt() {
