@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Emailform from './Emailform'
+import EmailForm from './Emailform'
+
 
 
 function ZastoNasKontakt() {
@@ -27,8 +28,7 @@ function ZastoNasKontakt() {
             </div>
 
 
-            <Emailform />
-
+            <EmailForm />
 
         </div >
     )
