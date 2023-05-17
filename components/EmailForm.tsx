@@ -69,4 +69,4 @@ const EmailForm: React.FC = () => {
     );
 };
 
-export default EmailForm;
+export default EmailForm

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import EmailForm from './Emailform'
 
 
-const ZastoNasKontakt: React.FC = () => {
+function ZastoNasKontakt() {
     return (
         <div className='bg-[#F7F7FE] m-10 rounded-2xl'>
             <div className='flex flex-col md:flex-row p-5 justify-evenly items-center'>
@@ -25,7 +25,6 @@ const ZastoNasKontakt: React.FC = () => {
 
 
             </div>
-
 
             <EmailForm />
 
