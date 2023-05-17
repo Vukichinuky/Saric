@@ -19,7 +19,7 @@ function Curasel() {
                     grabCursor={true}
 
 
-                    modules={[Pagination, Autoplay]}
+                    modules={[Pagination, Autoplay, Navigation]}
                     autoplay={{ delay: 3000 }}
                 >
                     <SwiperSlide className=''> <img src="/vreca1.png" alt="asd" /></SwiperSlide>

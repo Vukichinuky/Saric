@@ -1,55 +1,72 @@
+import React, { useState } from 'react';
 
-import axios from 'axios'
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import { useState } from 'react'
+const EmailForm: React.FC = () => {
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
 
-const Email: NextPage = () => {
-    const [inputData, setInputData] = useState({
-        name: "",
-        email: "",
-        message: "",
-    });
-
-    const handleChange = (e: any) => {
-        setInputData({ ...inputData, [e.target.name]: e.target.value });
-    }
-
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(inputData);
-        const response = await axios.post(`/api/sendEmail`, inputData)
-        console.log(response);
-        alert("Contact successfully sent!!")
-    }
+
+        try {
+            const response = await fetch('/api/sendEmail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, message }),
+            });
+
+            if (response.ok) {
+                // Email sent successfully
+                setEmail('');
+                setMessage('');
+                alert('Email sent successfully!');
+            } else {
+                // Email sending failed
+                alert('Failed to send email. Please try again later.');
+            }
+        } catch (error) {
+            console.error('Error sending email:', error);
+            alert('An error occurred. Please try again later.');
+        }
+    };
 
     return (
-        <div className=''>
-            <Head>
-                <title>Next Email App</title>
-                <meta name="description" content="Using sendgrid" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+            <div className="mb-4">
+                <label htmlFor="email" className="text-lg">
+                    Email
+                </label>
+                <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                />
+            </div>
+            <div className="mb-4">
+                <label htmlFor="message" className="text-lg">
+                    Message
+                </label>
+                <textarea
+                    id="message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    rows={4}
+                    required
+                ></textarea>
+            </div>
+            <button
+                type="submit"
+                className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+            >
+                Send Email
+            </button>
+        </form>
+    );
+};
 
-            <main className=''>
-                <h1 className=''>
-                    Contact
-                </h1>
-                <form className='' onSubmit={handleSubmit}>
-                    <label className='' htmlFor="name">Full Name:</label><br />
-                    <input className='' type="text" id="name" name="name" onChange={handleChange} /><br />
-
-                    <label className='' htmlFor="email">Email:</label><br />
-                    <input className='' type="text" id="email" name="email" onChange={handleChange} /><br /><br />
-
-                    <label className='' htmlFor="message">Message:</label><br />
-                    <textarea className='' id="message" name="message" rows={5} onChange={handleChange} /><br /><br />
-
-                    <input type="submit" value="Submit" />
-                </form>
-            </main>
-        </div>
-    )
-}
-
-export default Email
+export default EmailForm;
