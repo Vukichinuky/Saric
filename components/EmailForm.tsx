@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Input from './Polja'
+import Polja from './Polja'
 import TextArea from './Textarea'
 import { validate } from '../utils/validate'
 import Image from 'next/image'
@@ -65,7 +65,7 @@ export default function EmailForm() {
                     className="flex flex-col items-center w-full mx-auto sm:w-1/2 md:w-1/2 xl:w-1/3"
                     onSubmit={handleSubmit}
                 >
-                    <Input
+                    <Polja
                         value={values.name}
                         onChange={handleChange}
                         id="name"
@@ -75,7 +75,7 @@ export default function EmailForm() {
                         error={!!errors.name}
                         errorMessage={!!errors.name ? errors.name : ''}
                     />
-                    <Input
+                    <Polja
                         value={values.email}
                         onChange={handleChange}
                         id="email"
