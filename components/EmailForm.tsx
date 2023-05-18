@@ -26,7 +26,7 @@ export default function EmailForm() {
         setErrors({})
         setLoading(true)
         try {
-            const res = await fetch('../api/send', {
+            const res = await fetch('../pages/api/send', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
