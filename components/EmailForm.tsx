@@ -49,18 +49,9 @@ export default function EmailForm() {
     }
 
     return (
-        <div className="w-full h-screen bg-blue-50">
+        <div className="w-full h-screen ">
             <div className="px-3">
-                <h1 className="py-10 text-4xl text-center">
-                    Welcome, you can use this form to reach{' '}
-                    <a
-                        className="text-indigo-600 underline"
-                        href="https://twitter.com/sairaj2119"
-                        target="_blank"
-                    >
-                        me
-                    </a>
-                </h1>
+
                 <form
                     className="flex flex-col items-center w-full mx-auto sm:w-1/2 md:w-1/2 xl:w-1/3"
                     onSubmit={handleSubmit}
@@ -96,7 +87,7 @@ export default function EmailForm() {
                         errorMessage={!!errors.message ? errors.message : ''}
                     />
                     <button
-                        className="w-full py-2 mt-6 text-lg text-white bg-purple-500 rounded-md outline-none active:bg-purple-600 focus:ring-2 focus:ring-purple-400 disabled:bg-opacity-60 disabled:cursor-not-allowed"
+                        className="w-full py-2 mt-6 text-lg text-white bg-teal-700 rounded-full outline-none active:bg-teal-300 focus:ring-2 focus:ring-purple-400 disabled:bg-opacity-60 disabled:cursor-not-allowed"
                         type="submit"
                         disabled={loading}
                     >
