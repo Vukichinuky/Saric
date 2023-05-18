@@ -11,8 +11,8 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method === 'POST') {
     const { name, email, message }: { name: string; email: string; message: string } = req.body
     const msg = {
-      to: 'sairaj2119@gmail.com',
-      from: 'sairaj2119@gmail.com',
+      to: 'gudraliin@gmail.com',
+      from: 'gudraliin@gmail.com',
       subject: `${name.toUpperCase()} sent you a message`,
       text: `Email => ${email}`,
       html: `<strong>${message}</strong>`,
