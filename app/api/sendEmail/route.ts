@@ -11,8 +11,8 @@ const sendEmail = async (req: NextApiRequest, res: NextApiResponse) => {
     const { email, message } = req.body;
 
     const msg = {
-        to: 'gudraliin@gmail.com', // Change this to the recipient's email address
-        from: 'sender@example.com', // Change this to the sender's email address
+        to: 'drvuk6@gmail.com', // Change this to the recipient's email address
+        from: 'drvuk6@gmail.com', // Change this to the sender's email address
         subject: 'New Email from Website',
         text: `${email} says: ${message}`,
     };
