@@ -1,72 +1,115 @@
-import React, { useState } from 'react';
+import { useState } from 'react'
+import Input from './Polja'
+import TextArea from './Textarea'
+import { validate } from '../utils/validate'
+import Image from 'next/image'
 
-const EmailForm: React.FC = () => {
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
+interface IValues {
+    name: string
+    email: string
+    message: string
+}
+
+interface IErrors extends Partial<IValues> { }
+
+export default function EmailForm() {
+    const [values, setValues] = useState<IValues>({ name: '', email: '', message: '' })
+    const [errors, setErrors] = useState<IErrors>({})
+    const [loading, setLoading] = useState(false)
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-
+        e.preventDefault()
+        const errors = validate(values)
+        if (errors && Object.keys(errors).length > 0) {
+            return setErrors(errors)
+        }
+        setErrors({})
+        setLoading(true)
         try {
-            const response = await fetch('/api/sendEmail', {
+            const res = await fetch('../api/send', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, message }),
-            });
-
-            if (response.ok) {
-                // Email sent successfully
-                setEmail('');
-                setMessage('');
-                alert('Email sent successfully!');
-            } else {
-                // Email sending failed
-                alert('Failed to send email. Please try again later.');
+                body: JSON.stringify(values),
+            })
+            if (res.ok) {
+                setValues({ name: '', email: '', message: '' })
             }
-        } catch (error) {
-            console.error('Error sending email:', error);
-            alert('An error occurred. Please try again later.');
+        } catch (err) {
+            console.log(err)
         }
-    };
+        setLoading(false)
+    }
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
+    ) => {
+        setValues((prevInput) => ({ ...prevInput, [e.target.name]: e.target.value }))
+    }
 
     return (
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-            <div className="mb-4">
-                <label htmlFor="email" className="text-lg">
-                    Email
-                </label>
-                <input
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    required
-                />
+        <div className="w-full h-screen bg-blue-50">
+            <div className="px-3">
+                <h1 className="py-10 text-4xl text-center">
+                    Welcome, you can use this form to reach{' '}
+                    <a
+                        className="text-indigo-600 underline"
+                        href="https://twitter.com/sairaj2119"
+                        target="_blank"
+                    >
+                        me
+                    </a>
+                </h1>
+                <form
+                    className="flex flex-col items-center w-full mx-auto sm:w-1/2 md:w-1/2 xl:w-1/3"
+                    onSubmit={handleSubmit}
+                >
+                    <Input
+                        value={values.name}
+                        onChange={handleChange}
+                        id="name"
+                        name="name"
+                        label="Your Name"
+                        placeholder="JhonDoe"
+                        error={!!errors.name}
+                        errorMessage={!!errors.name ? errors.name : ''}
+                    />
+                    <Input
+                        value={values.email}
+                        onChange={handleChange}
+                        id="email"
+                        name="email"
+                        label="Your Email"
+                        placeholder="jhondoe@gmail.com"
+                        error={!!errors.email}
+                        errorMessage={!!errors.email ? errors.email : ''}
+                    />
+                    <TextArea
+                        value={values.message}
+                        onChange={handleChange}
+                        id="message"
+                        name="message"
+                        label="Your message to me"
+                        placeholder="Hi There!"
+                        error={!!errors.message}
+                        errorMessage={!!errors.message ? errors.message : ''}
+                    />
+                    <button
+                        className="w-full py-2 mt-6 text-lg text-white bg-purple-500 rounded-md outline-none active:bg-purple-600 focus:ring-2 focus:ring-purple-400 disabled:bg-opacity-60 disabled:cursor-not-allowed"
+                        type="submit"
+                        disabled={loading}
+                    >
+                        {!loading ? (
+                            'Submit'
+                        ) : (
+                            <div className="flex items-center justify-center w-full h-full ">
+                                <Image src="/loader.svg" className="animate-spin" width="30" height="30" alt={''} />
+                            </div>
+                        )}
+                    </button>
+                </form>
             </div>
-            <div className="mb-4">
-                <label htmlFor="message" className="text-lg">
-                    Message
-                </label>
-                <textarea
-                    id="message"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    rows={4}
-                    required
-                ></textarea>
-            </div>
-            <button
-                type="submit"
-                className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
-            >
-                Send Email
-            </button>
-        </form>
-    );
-};
-
-export default EmailForm
+        </div>
+    )
+}
