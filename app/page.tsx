@@ -11,6 +11,7 @@ import Galerija from '@/components/Galerija';
 import Faq from '@/components/Faq';
 import AnimatedPage from "../components/AnimatedPage";
 import Proizvodi from '@/components/Proizvodi';
+import Curasel from '@/components/Curasel';
 
 {  /*const MyComponent = dynamic(
   () => import('../components/Curasel'),
@@ -27,7 +28,7 @@ export default function Home() {
         {  /* <MyComponent /> */}
         <Partneri />
         <div className=''>
-          <Proizvodi />
+          <Curasel />
         </div>
         <NestoONama />
         <ZastoNasKontakt />

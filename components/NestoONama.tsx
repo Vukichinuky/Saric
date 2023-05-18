@@ -2,7 +2,7 @@ import React from 'react'
 
 function NestoONama() {
     return (
-        <div className='flex items-center flex-col sm:flex-row  justify-evenly'>
+        <div className='flex mt-52 items-center flex-col sm:flex-row  justify-evenly'>
             <div className='flex items-center justify-center  flex-col'>
                 <h4 className=' text-4xl max-w-xs text-center font-semibold'>
                     Nije svaki kvalitet stampe isti

@@ -1,34 +1,54 @@
+import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react"
+import "keen-slider/keen-slider.min.css"
+import Image from "next/image"
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import "swiper/css/bundle";
-
-
-// import required modules
-import { Pagination, Autoplay, Navigation } from "swiper";
-// Import Swiper styles
-import 'swiper/css/bundle'
+const carousel: KeenSliderPlugin = (slider) => {
+    const z = 300
+    function rotate() {
+        const deg = 360 * slider.track.details.progress
+        slider.container.style.transform = `translateZ(-${z}px) rotateY(${-deg}deg)`
+    }
+    slider.on("created", () => {
+        const deg = 360 / slider.slides.length
+        slider.slides.forEach((element, idx) => {
+            element.style.transform = `rotateY(${deg * idx}deg) translateZ(${z}px)`
+        })
+        rotate()
+    })
+    slider.on("detailsChanged", rotate)
+}
 function Curasel() {
+    const [sliderRef] = useKeenSlider<HTMLDivElement>(
+        {
+            loop: true,
+            selector: ".carousel__cell",
+            renderMode: "custom",
+            mode: "free-snap",
+        },
+        [carousel]
+    )
     return (
-        <div className=' '>
-            <div className=''>
-                <h2 className='text-center text-slate-300 m-10 text-3xl'>Proizvodi</h2>
+        <div className="wrapper">
+            <div className="scene">
+                <div className="carousel keen-slider" ref={sliderRef}>
+                    <div className="carousel__cell  number-slide1">
+                        <Image width={300} height={400} src={"/slikavrece1.PNG"} alt={""} />
+                    </div>
+                    <div className="carousel__cell  number-slide2">
+                        <Image width={300} height={400} src={"/slikavrece2.PNG"} alt={""} />
+
+                    </div>
+                    <div className="carousel__cell   number-slide3">
+                        <Image width={300} height={400} src={"/slikavrece3.PNG"} alt={""} />
+                    </div>
+                    <div className="carousel__cell  number-slide4">
+                        <Image width={300} height={400} src={"/slikavrece4.PNG"} alt={""} />
+                    </div>
+                    <div className="carousel__cell  number-slide5">
+                        <Image width={100} height={400} src={"/slikavrece5.PNG"} alt={""} />
+                    </div>
+                </div>
             </div>
-            <div className=''>
-                <Swiper
-                    effect={"cards"}
-                    grabCursor={true}
-
-
-                    modules={[Pagination, Autoplay, Navigation]}
-                    autoplay={{ delay: 3000 }}
-                >
-                    <SwiperSlide className=''> <img src="/vreca1.png" alt="asd" /></SwiperSlide>
-                    <SwiperSlide><img src="/saricvreca.png" alt="asd" /></SwiperSlide>
-                    <SwiperSlide><img src="/saricvreca1.png" alt="asd" /></SwiperSlide>
-                    <SwiperSlide><img src="/saricvreca.png" alt="asd" /></SwiperSlide>
-                </Swiper>
-            </div>
-
         </div>
     )
 }
