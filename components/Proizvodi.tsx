@@ -1,64 +1,51 @@
+import React, { useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Autoplay, Pagination, Navigation } from 'swiper';
 
-import { Swiper, SwiperSlide, } from 'swiper/react';
-import 'swiper/swiper-bundle.css';
-import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper';
-interface Slide {
-    image: string;
-    alt: string;
-}
-SwiperCore.use([Autoplay, Navigation, Pagination]);
+export default function Proizvodi() {
+    const progressCircle = useRef<SVGSVGElement>(null);
+    const progressContent = useRef<HTMLSpanElement>(null);
 
-const Proizvodi: React.FC = () => {
-    const slides: Slide[] = [
-
-        { image: '/IMG_2991.JPG', alt: 'Slide 1' },
-        { image: '/PHOTO-2023-03-30-11-24-07.png', alt: 'Slide 2' },
-        { image: '/PHOTO-2023-03-30-11-29-38.png', alt: 'Slide 3' },
-        { image: '/PHOTO-2023-03-30-11-29-41 2.png', alt: 'Slide 4' },
-        { image: '/PHOTO-2023-03-30-11-29-41 3.png', alt: 'Slide 5' },
-        { image: '/PHOTO-2023-03-30-11-29-41.png', alt: 'Slide 6' },
-    ];
-
-    const params = {
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        loop: true,
-        slidesPerView: 4,
-        autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-        },
+    const onAutoplayTimeLeft = (s: any, time: number, progress: number) => {
+        progressCircle.current!.style.setProperty('--progress', String(1 - progress));
+        progressContent.current!.textContent = `${Math.ceil(time / 1000)}s`;
     };
 
     return (
-        <div className=''>
-            <h2 className="text-center text-xl italic font-semibold sm:text-2xl p-4">
-                Pogledajte primere nekih ambalaza koje pravimo
-            </h2>
-            <div className="swiper-container sm:px-64 py-20">
-                <Swiper {...params}>
-                    {slides.map((slide, index) => (
-                        <SwiperSlide key={index} className="swiper-slide">
-                            <img src={slide.image} width={300} height={400} alt={slide.alt} />
-
-                        </SwiperSlide>
-                    ))}<div className="swiper-pagination"></div>
-                    <div className="swiper-button-prev"></div>
-                    <div className="swiper-button-next"></div>
+        <>
+            <div className='relative h-full'>
+                <Swiper
+                    spaceBetween={30}
+                    centeredSlides={true}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    navigation={true}
+                    modules={[Autoplay, Pagination, Navigation]}
+                    onAutoplayTimeLeft={onAutoplayTimeLeft}
+                    className="mySwiper"
+                >
+                    <SwiperSlide>Slide 1</SwiperSlide>
+                    <SwiperSlide>Slide 2</SwiperSlide>
+                    <SwiperSlide>Slide 3</SwiperSlide>
+                    <SwiperSlide>Slide 4</SwiperSlide>
+                    <SwiperSlide>Slide 5</SwiperSlide>
+                    <div className="autoplay-progress" slot="container-end">
+                        <svg viewBox="0 0 48 48" ref={progressCircle}>
+                            <circle cx="24" cy="24" r="20"></circle>
+                        </svg>
+                        <span ref={progressContent}></span>
+                    </div>
                 </Swiper>
-
             </div>
-        </div>
-    );
-};
 
-export default Proizvodi;
+        </>
+    );
+}

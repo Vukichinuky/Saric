@@ -128,6 +128,13 @@ button {
   font-size: 16px;
 }
 
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 [class^="number-slide"],
 [class*=" number-slide"] {
   display: flex;
@@ -141,39 +148,30 @@ button {
 }
 
 .number-slide1 {
-  background: rgb(15, 118, 110, 0.7);
+  background: rgb(64, 175, 255);
   background: linear-gradient(128deg,
-      rgb(15, 118, 110, 0.7) 0%,
-      rgb(41, 75, 72)100%);
+      rgba(64, 175, 255, 1) 0%,
+      rgba(63, 97, 255, 1) 100%);
 }
 
 .number-slide2 {
-  background: rgb(15, 118, 110, 0.7);
+  background: rgb(255, 75, 64);
   background: linear-gradient(128deg,
-      rgb(15, 118, 110, 0.7) 0%,
-      rgb(41, 75, 72)100%);
+      rgba(255, 154, 63, 1) 0%,
+      rgba(255, 75, 64, 1) 100%);
 }
 
 .number-slide3 {
-  background: rgb(15, 118, 110, 0.7);
+  background: rgb(182, 255, 64);
   background: linear-gradient(128deg,
-      rgb(15, 118, 110, 0.7) 0%,
-      rgb(41, 75, 72)100%);
+      rgba(182, 255, 64, 1) 0%,
+      rgba(63, 255, 71, 1) 100%);
+  background: linear-gradient(128deg,
+      rgba(189, 255, 83, 1) 0%,
+      rgba(43, 250, 82, 1) 100%);
 }
 
-.number-slide4 {
-  background: rgb(15, 118, 110, 0.7);
-  background: linear-gradient(128deg,
-      rgb(15, 118, 110, 0.7) 0%,
-      rgb(41, 75, 72)100%);
-}
 
-.number-slide5 {
-  background: rgb(15, 118, 110, 0.7);
-  background: linear-gradient(128deg,
-      rgb(15, 118, 110, 0.7) 0%,
-      rgb(41, 75, 72)100%);
-}
 
 
 .wrapper {
@@ -182,24 +180,25 @@ button {
 }
 
 .scene {
-  width: 300px;
+  width: 260px;
   height: 200px;
-  perspective: 3000px;
+  perspective: 5000px;
   position: relative;
 }
 
 .scene .carousel.keen-slider {
   width: 100%;
-  height: 90%;
+  height: 100%;
   overflow: visible;
   position: absolute;
-  transform: translateZ(-288px);
+  transform: translateZ(-300px);
   transform-style: preserve-3d;
 }
 
 .carousel__cell {
   position: absolute;
-  width: 300px;
+  width: 240px;
   left: 10px;
-  height: 400px;
+  height: 0px;
+  margin-top: 200px;
 }
