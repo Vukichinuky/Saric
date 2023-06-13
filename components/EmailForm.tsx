@@ -49,11 +49,11 @@ export default function EmailForm() {
     }
 
     return (
-        <div className="w-full h-screen ">
-            <div className="px-3">
+        <div className=" ">
+            <div className="">
 
                 <form
-                    className="flex flex-col items-center w-full mx-auto sm:w-1/2 md:w-1/2 xl:w-1/3"
+                    className="flex flex-col pb-10 items-center w-full mx-auto sm:w-1/2 md:w-1/2 xl:w-1/3"
                     onSubmit={handleSubmit}
                 >
                     <Polja

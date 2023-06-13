@@ -34,11 +34,11 @@ export default function App() {
         <div className="wrapper">
             <div className="scene">
                 <div className="carousel keen-slider" ref={sliderRef}>
-                    <div className="carousel__cell number-slide1"><Image width={400} height={400} src={"/slikavrece11.png"} alt={""} /></div>
-                    <div className="carousel__cell number-slide2"><Image width={400} height={400} src={"/slikavrece21.png"} alt={""} /></div>
-                    <div className="carousel__cell number-slide3"><Image width={400} height={400} src={"/slikavrece31.png"} alt={""} /></div>
-                    <div className="carousel__cell number-slide4"><Image width={600} height={600} src={"/slikavrece41.png"} alt={""} /></div>
-                    <div className="carousel__cell number-slide5"><Image width={400} height={400} src={"/slikavrece5.png"} alt={""} /></div>
+                    <div className="carousel__cell number-slide1"><Image width={400} height={400} src={"/slikavrece1.png"} alt={""} /></div>
+                    <div className="carousel__cell number-slide2"><Image width={400} height={400} src={"/slikavrece2.png"} alt={""} /></div>
+                    <div className="carousel__cell number-slide3"><Image width={400} height={400} src={"/slikavrece3.png"} alt={""} /></div>
+                    <div className="carousel__cell number-slide4"><Image width={600} height={600} src={"/slikavrece4.png"} alt={""} /></div>
+                    <div className="carousel__cell number-slide5"><Image width={150} height={150} src={"/slikavrece5.png"} alt={""} /></div>
                 </div>
             </div>
         </div>
